@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Add a Book</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <i class="fa fa-book" aria-hidden="true"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Hey, Admin!
+          </span>
+        </div>
+      </nav>
+    <div class="container">
+        <% if(typeof(message)!== 'undefined'){ %>
+            <h5 class="alert alert-success mt-4">
+                <%= message %>
+            </h5>
+        <% }%>
+        <div class="book">
+        <h4 class="alert alert-primary mt-4">Fill in the book details:</h4>
+        <form action="/book" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="book_id">Book ID:</label>
+                        <input type="text" class="form-control" name="book_id" id="book_id" required>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" name="title" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="publications">Publications</label>
+                <input type="text" class="form-control" name="publications" id="publications" required>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="text" class="form-control" name="price" id="price" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+        <div class="author mt-2">
+            <h4 class="alert alert-primary mt-4">Fill in the Author details:</h4>
+            <form action="/author" method="post">
+                <div class="form-group">
+                    <label for="author_id">Author ID:</label>
+                    <input type="text" class="form-control" name="author_id" id="author_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Author Name:</label>
+                    <input type="text" class="form-control" name="author_name" id="author_name" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+        </div>
+        
+        <div class="auth_book mt-2">
+            <h4 class="alert alert-primary mt-4">Fill in the book id and author id(s):</h4>
+        <form action="/auth_book" method="post">
+            <div class="form-group">
+                <label for="book_id">Book ID:</label>
+                <input type="text" class="form-control" name="book_id" id="book_id" required>
+            </div>
+            <div class="form-group">
+                <label for="author_id">Author ID:</label>
+                <input type="text" class="form-control" name="author_id" id="author_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+       
+        </div>
+    </div>  
+</body>
+</html>
