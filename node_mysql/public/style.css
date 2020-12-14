@@ -12,7 +12,7 @@
 * {
     box-sizing: border-box;
     font-family: Raleway;
-    color: #777;
+    color: black;
 }
 .red {
     border: 1px solid red;
@@ -20,6 +20,12 @@
 
 .green {
     border: 1px solid green;
+}
+#my-carousel{
+    background-color: #333;
+}
+.carousel-control-next-icon{
+    color: #333;
 }
 
 .login-left {

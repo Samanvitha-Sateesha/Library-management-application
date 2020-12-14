@@ -21,7 +21,9 @@ router.get("/login",(req,res)=>{
 router.get("/register",(req,res)=>{
     res.render("register");
 });
-
+router.get('/adminHome',(req,res)=>{
+    res.render("adminHome");
+});
 router.get("/adminLogin",(req,res)=>{
     res.render("adminLogin");
 });
@@ -37,9 +39,10 @@ router.get("/index",(req,res)=>{
 });
 
 router.post('/purchase',(req,res)=>{
-    let jsonData = req.body;
-    console.log(jsonData);
-    db.query('INSERT INTO purchase SET ? ',jsonData,(error,results)=>{
+    var book_id = req.body.book_id;
+    console.log(book_id);
+    const sql = "INSERT INTO purchase VALUES (?,?);";
+    db.query(sql,[req.body.book_id,req.body.id],(error,results)=>{
         if(error)
             throw error;
         console.log("Added successfully"+results);    

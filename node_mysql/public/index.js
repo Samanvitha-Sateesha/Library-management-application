@@ -53,8 +53,9 @@ function purchaseClicked() {
     while (cartItems.hasChildNodes()) {
         var request = new XMLHttpRequest();
         request.open('POST','/purchase');
-        var book_id = document.getElementsByClassName('cart-item-id').innerText
-        var uid = document.getElementsByClassName('user-id').innerText
+        var book_id = document.getElementsByClassName('cart-item-id')[0].innerText
+        var uid = document.getElementsByClassName('user-id')[0].innerText
+        console.log(book_id,uid); 
         request.setRequestHeader("Content-Type","application/json;charset=UTF-8");
         request.send(JSON.stringify({book_id:book_id,id:uid}))
         cartItems.removeChild(cartItems.firstChild)

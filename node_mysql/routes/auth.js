@@ -20,7 +20,9 @@ router.post('/adminLogin',authController.adminLogin);
 router.get('/logout',authController.logout);
 router.get('/addbook',(req,res)=>{
     res.render('addbook');
-})
-
+});
+router.get('/adminHome',(req,res)=>{
+    res.render('adminHome');
+});
  
 module.exports = router;
